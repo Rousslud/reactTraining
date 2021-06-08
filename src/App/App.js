@@ -20,7 +20,7 @@ function App() {
       <Button bgColor="skyblue" fontColor="white" title="Non ne me clique pas !" clickActionPerso={arg => { }}>Test</Button>
       <Button isItalic={false} fontColor="black" clickActionPerso={arg => { }}><img src="https://cdn3.iconfinder.com/data/icons/materia-flat-halloween-free/24/039_026_cat_black_witch_halloween-256.png" alt="click" />Miaoouuu</Button>
       <hr/>
-      Mon compteur = {counter}
+      Mon compteur = {counter} {/**Pour le moment le counter ne se met pas à jour malgré que la console s'affiche correctement. On verra demain comment mettre à jour l'état*/}
     </div>
   );
 }
