@@ -5,13 +5,18 @@
 	font-size: large;
 	cursor: pointer;
 	margin: 5px 5px 5px 5px;
-};
+}
 
-.Button *{
+;
+.Button * {
 	vertical-align: middle;
-  }
-  
-  .Button img{
+}
+
+.Button img {
 	height: 20px;
 	width: 20px
-  }
+}
+
+.clicked{
+	box-shadow: 10px 10px 25px gray;
+}
