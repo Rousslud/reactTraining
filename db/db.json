@@ -1,0 +1,25 @@
+{
+	"images": [
+		{
+			"id": 1,
+			"title": "image1",
+			"url": "image1.jpg",
+			"width": 1024,
+			"height": 768
+		}
+	],
+	"memes": [
+		{
+			"id": 1,
+			"title": "Titre du mémé",
+			"text": "",
+			"x": 100,
+			"y": 100,
+			"imageId": 1
+		}
+	],
+	"config": {
+		"title": "meme.js",
+		"author": "Ludovic"
+	}
+}
