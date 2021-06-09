@@ -1,5 +1,7 @@
 .FlexLayout {
 	display: flex;
+	height: 80vh;
+	vertical-align: middle;
 }
 
 .FlexLayout>*:first-child {

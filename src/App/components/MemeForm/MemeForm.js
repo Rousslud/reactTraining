@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './MemeForm.module.css';
 
 const MemeForm = (props) => {
-  const [state, setstate] = useState({ titre: 'bla', x: 10, y: 20, text: 'coucou', imageId: 1 })
-
+  const [state, setstate] = useState({ titre: 'bla', x: 10, y: 20, text: 'coucou', imageId: 1 });
+  useEffect(() => {
+    // appel de la fonction envoyée par les props
+    props.onSubmit(state);
+  }, [state]);
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
       <form onSubmit={(evt) => {
         // Annulation du comportement par défaut de la soumission d'un formulaire
         evt.preventDefault();
-        // appel de la fonction envoyée par les props
-        props.onSubmit(state);
       }}>
         <label htmlFor="titre">Titre</label><br /><input onChange={evt => {
           setstate({ ...state, titre: evt.target.value })
@@ -19,7 +20,7 @@ const MemeForm = (props) => {
         <hr />
 
         <label htmlFor="image">Image</label><br /><select onChange={evt => {
-          setstate({ ...state, imageId: Number(evt.target.value)})
+          setstate({ ...state, imageId: Number(evt.target.value) })
         }} value={state.imageId} id="image">
           {
             props.images.map((element, index) => <option value={element.id} key={"option-image-" + index}>{element.title}</option>)
