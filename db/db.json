@@ -6,6 +6,20 @@
 			"url": "image1.jpg",
 			"width": 1024,
 			"height": 768
+		},
+		{
+			"title": "image2",
+			"url": "image2.jpg",
+			"width": 1024,
+			"height": 768,
+			"id": 2
+		},
+		{
+			"title": "image3",
+			"url": "image2.jpg",
+			"width": 1024,
+			"height": 768,
+			"id": 3
 		}
 	],
 	"memes": [
@@ -16,6 +30,22 @@
 			"x": 100,
 			"y": 100,
 			"imageId": 1
+		},
+		{
+			"id": 2,
+			"title": "Titre du mémé2",
+			"text": "",
+			"x": 100,
+			"y": 100,
+			"imageId": 2
+		},
+		{
+			"id": 3,
+			"title": "Titre du mémé3",
+			"text": "",
+			"x": 100,
+			"y": 100,
+			"imageId": 3
 		}
 	],
 	"config": {
