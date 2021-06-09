@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from './components/Button/Button';
 import FlexLayout from './components/FlexLayout/FlexLayout';
 import MemeForm from './components/MemeForm/MemeForm';
 
@@ -19,7 +18,7 @@ class App extends React.Component {
     return <div className="App">
       <FlexLayout>
         <div></div>
-        <MemeForm></MemeForm>
+        <MemeForm onSubmit={formState=>this.setState({current:formState})}></MemeForm>
       </FlexLayout>
       {JSON.stringify(this.state)}
     </div>;

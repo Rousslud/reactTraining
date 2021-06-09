@@ -7,7 +7,12 @@ const MemeForm = (props) => {
 
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
-      <form>
+      <form onSubmit={(evt)=>{
+        // Annulation du comportement par défaut de la soumission d'un formulaire
+        evt.preventDefault();
+        // appel de la fonction envoyée par les props
+        props.onSubmit(state);
+      }}>
         <label htmlFor="titre">Titre</label><br /><input onChange={evt=>{
           setstate({...state, titre:evt.target.value})
         }} value={state.titre} type="text" id="titre" placeholder="saisissez le titre"></input>
@@ -36,7 +41,9 @@ const MemeForm = (props) => {
   );
 }
 
-MemeForm.propTypes = {};
+MemeForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
 
 MemeForm.defaultProps = {};
 
