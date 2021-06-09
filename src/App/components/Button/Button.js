@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function Button(props) {
 	console.log(props)
 	return <button onClick={evt => {
-		alert('j\'ai cliqué sur ' + evt.target.innerText)
+		//alert('j\'ai cliqué sur ' + evt.target.innerText)
 		console.warn(evt);
 		props.clickActionPerso(evt.target.innerText);
 	}}
