@@ -2,27 +2,26 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './MemeForm.module.css';
 import { REST_ADR_SRV } from '../../config/config';
+import store, { initialState, PUBLIC_ACTION_CURRENT } from '../../store/store'
 
 const MemeForm = (props) => {
-  const [state, setstate] = useState({ titre: 'bla', x: 10, y: 20, text: 'coucou', imageId: 1, color: '#000000', fontSize: 15 });
+  const [state, setstate] = useState(initialState.current);
+  useEffect(() => {
+    setstate(store.getState().current)
+    store.subscribe(() => {
+      setstate(store.getState().current)
+    })
+  }, [1])
   useEffect(() => {
     // appel de la fonction envoyée par les props
-    props.onSubmit(state);
+    store.dispatch({ type: PUBLIC_ACTION_CURRENT.SET_CURRENT, value: state })
   }, [state]);
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
       <form onSubmit={(evt) => {
         // Annulation du comportement par défaut de la soumission d'un formulaire
         evt.preventDefault();
-        fetch(`${REST_ADR_SRV}/memes${state.id ? '/' + state.id : ''}`, {
-          headers: {
-            "Content-Type": "application/json"
-          },
-          method: (state.id ? 'PUT' : 'POST'),
-          body: JSON.stringify(state)
-        })
-          .then(flux => flux.json())
-          .then(obj => { setstate(obj) })
+        store.dispatch({type:PUBLIC_ACTION_CURRENT.SAVE_CURRENT})
       }}>
         <label htmlFor="titre">Titre</label><br /><input onChange={evt => {
           setstate({ ...state, titre: evt.target.value })
@@ -68,7 +67,6 @@ const MemeForm = (props) => {
 }
 
 MemeForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
   images: PropTypes.array.isRequired
 };
 

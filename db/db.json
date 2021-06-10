@@ -201,6 +201,35 @@
       "color": "#8e0628",
       "fontSize": 40,
       "id": 14
+    },
+    {
+      "current": {
+        "titre": "",
+        "x": 0,
+        "y": 0,
+        "text": "",
+        "imageId": 0,
+        "color": "#000000",
+        "fontSize": 15
+      },
+      "titre": "",
+      "x": 10,
+      "y": 20,
+      "text": "Hello",
+      "imageId": 1,
+      "color": "#000000",
+      "fontSize": 17,
+      "id": 15
+    },
+    {
+      "titre": "",
+      "x": 0,
+      "y": 0,
+      "text": "1235",
+      "imageId": 2,
+      "color": "#000000",
+      "fontSize": 15,
+      "id": 16
     }
   ],
   "config": {
