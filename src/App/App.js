@@ -3,7 +3,7 @@ import FlexLayout from './components/FlexLayout/FlexLayout';
 import MemeForm from './components/MemeForm/MemeForm';
 import MemeViewer from './components/MemeViewer/MemeViewer';
 import { REST_ADR_SRV } from "./config/config.js";
-import store, { initialState } from './store/store';
+import store, { initialState, globalInitialState } from './store/store';
 
 /**
  * Composant principal de notre application
@@ -11,13 +11,14 @@ import store, { initialState } from './store/store';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { current: initialState.current, images: [] };
+    this.state = { ...initialState, ...globalInitialState};
   }
   componentDidUpdate(pprops, pstate) {
     console.log(arguments);
     console.log(this.state);
   }
   render() {
+    console.log("toto", this.state)
     return <div className="App">
       <FlexLayout>
         <div>
@@ -29,10 +30,13 @@ class App extends React.Component {
   }
   componentDidMount() {
     this.setState({
-      current: store.getState().current
+      ...store.getState().meme, 
+      ...store.getState().datas
     })
     store.subscribe(() => {
-      this.setState({ current: store.getState().current })
+      this.setState({ 
+        ...store.getState().meme, 
+        ...store.getState().datas })
     }
     );
 
